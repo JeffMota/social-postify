@@ -5,6 +5,7 @@ export class User {
     private _name: string,
     private _email: string,
     private _password: string,
+    private _avatar: string,
     private readonly id: string = randomUUID(),
   ) {}
 
@@ -30,5 +31,12 @@ export class User {
 
   get password() {
     return this._password;
+  }
+
+  get avatar(): string {
+    return this._avatar;
+  }
+  set avatar(avatar: string) {
+    this._avatar = avatar;
   }
 }

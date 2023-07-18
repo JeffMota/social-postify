@@ -3,6 +3,7 @@ import {
   IsNotEmpty,
   IsString,
   IsStrongPassword,
+  MaxLength,
 } from 'class-validator';
 
 export class CreateUserDTO {
@@ -24,5 +25,10 @@ export class CreateUserDTO {
     minSymbols: 0,
     minUppercase: 0,
   })
+  @MaxLength(20)
   password: string;
+
+  @IsString()
+  @IsNotEmpty()
+  avatar: string;
 }
