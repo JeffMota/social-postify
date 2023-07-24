@@ -1,7 +1,9 @@
-import { Injectable } from '@nestjs/common';
+// import { Injectable } from '@nestjs/common';
 import { PrismaClient, Publication } from '@prisma/client';
+import { PublicationsRepository } from '../publications.repository';
 
-export class PublicationsRepository {
+// @Injectable()
+export class PrismaPublicationsRepository implements PublicationsRepository {
   constructor(private readonly prisma: PrismaClient) {}
 
   async addPublication(data: Omit<Publication, 'id' | 'createdAt'>) {

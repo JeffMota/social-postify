@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PublicationsRepository } from './publications.repository';
+import { PublicationsRepository } from './repository/publications.repository';
 import { CreatePublicationDTO } from './dto/create-publication.dto';
 
 @Injectable()

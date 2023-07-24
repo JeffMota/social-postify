@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
 import { PublicationsService } from './publications.service';
 import { PublicationsController } from './publications.controller';
-import { PublicationsRepository } from './publications.repository';
+import { PublicationsRepository } from './repository/publications.repository';
+import { PrismaPublicationsRepository } from './repository/implementations/PrismaPublications.repository';
 
 @Module({
   controllers: [PublicationsController],
-  providers: [PublicationsService, PublicationsRepository],
+  providers: [
+    PublicationsService,
+    { provide: PublicationsRepository, useClass: PrismaPublicationsRepository },
+  ],
 })
 export class PublicationsModule {}
